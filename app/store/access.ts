@@ -56,6 +56,7 @@ export const useAccessStore = createPersistStore(
     },
 
     isValidOpenAI() {
+      return true; // allow empty openApiKey
       return ensure(get(), ["openaiApiKey"]);
     },
 
