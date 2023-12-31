@@ -9,7 +9,7 @@ export const FETCH_TAG_URL = `https://api.github.com/repos/${OWNER}/${REPO}/tags
 export const RUNTIME_CONFIG_DOM = "danger-runtime-config";
 
 export const DEFAULT_CORS_HOST = "https://chatapi.ufo.k0s.io";
-export const DEFAULT_API_HOST = `${DEFAULT_CORS_HOST}/api/proxy`;
+export const DEFAULT_API_HOST = `${DEFAULT_CORS_HOST}`;
 export const OPENAI_BASE_URL = "https://api.openai.com";
 
 export const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/";
