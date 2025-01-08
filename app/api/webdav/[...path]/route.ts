@@ -32,31 +32,6 @@ async function handle(
   let proxy_method = requestUrl.searchParams.get("proxy_method") || req.method;
 
   // Validate the endpoint to prevent potential SSRF attacks
-  if (
-    !endpoint ||
-    !mergedAllowedWebDavEndpoints.some((allowedEndpoint) => {
-      const normalizedAllowedEndpoint = normalizeUrl(allowedEndpoint);
-      const normalizedEndpoint = normalizeUrl(endpoint as string);
-
-      return (
-        normalizedEndpoint &&
-        normalizedEndpoint.hostname === normalizedAllowedEndpoint?.hostname &&
-        normalizedEndpoint.pathname.startsWith(
-          normalizedAllowedEndpoint.pathname,
-        )
-      );
-    })
-  ) {
-    return NextResponse.json(
-      {
-        error: true,
-        msg: "Invalid endpoint",
-      },
-      {
-        status: 400,
-      },
-    );
-  }
 
   if (!endpoint?.endsWith("/")) {
     endpoint += "/";
